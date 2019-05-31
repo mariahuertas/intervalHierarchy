@@ -1,12 +1,12 @@
 package tdd.intervalHierarchy;
 
-public class ClosedInterval extends Interval {
+public class ClosedInterval extends OpenedInterval {
 
 	public ClosedInterval(double min, double max) {
 		super(min, max);
 	}
 
-	public boolean isIntersected(Interval another) {
+	public boolean isIntersected(OpenedInterval another) {
 		return super.isIntersected(another);
 	}
 

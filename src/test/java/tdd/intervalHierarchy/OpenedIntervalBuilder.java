@@ -22,8 +22,8 @@ public class OpenedIntervalBuilder {
 		return this;
 	}
 	
-	Interval build() {
+	OpenedInterval build() {
 		assert min <= max;
-		return new Interval(min, max);
+		return new OpenedInterval(min, max);
 	}
 }
