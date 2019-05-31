@@ -1,13 +1,28 @@
 package tdd.intervalHierarchy;
 
-public class OpenedIntervalBuilder extends IntervalBuilder {
+public class OpenedIntervalBuilder {
 
+	
+	private double min;
+	
+	private double max;
+	
 	OpenedIntervalBuilder(){
-		super();
+		this.min = 0;
+		this.max = 1;
 	}
 	
-	@Override
-	protected Interval build() {
+	OpenedIntervalBuilder min(double min) {
+		this.min = min;
+		return this;
+	}
+
+	OpenedIntervalBuilder max(double max) {
+		this.max = max;
+		return this;
+	}
+	
+	Interval build() {
 		assert min <= max;
 		return new Interval(min, max);
 	}
