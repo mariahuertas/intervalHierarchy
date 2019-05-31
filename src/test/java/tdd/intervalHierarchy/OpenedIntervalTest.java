@@ -62,4 +62,11 @@ public class OpenedIntervalTest extends TestCase {
 		assertFalse(one.isIntersected(another));
 	}
 	
+	@Test
+	public void testIsIntersectedSamePoint() {
+		OpenedInterval one = new OpenedIntervalBuilder().min(3).max(14).build();
+		OpenedInterval another = new OpenedIntervalBuilder().min(3).max(14).build();
+		assertTrue(one.isIntersected(another));
+	}
+	
 }

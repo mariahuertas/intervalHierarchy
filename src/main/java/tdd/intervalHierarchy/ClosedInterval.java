@@ -6,12 +6,9 @@ public class ClosedInterval extends OpenedInterval {
 		super(min, max);
 	}
 
-	public boolean isIntersected(OpenedInterval another) {
-		return super.isIntersected(another);
-	}
-
+	@Override
 	protected boolean isIncluded(double value) {
-		return this.min <= value && value <= this.max;
+		return super.isIncluded(value) || this.min == value || this.max ==value;
 	}
 
 }

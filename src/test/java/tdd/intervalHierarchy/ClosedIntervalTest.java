@@ -62,5 +62,11 @@ public class ClosedIntervalTest extends TestCase {
 		assertFalse(one.isIntersected(another));
 	}
 	
+	@Test
+	public void testIsIntersectedSamePoint() {
+		ClosedInterval one = new ClosedIntervalBuilder().min(3).max(14).build();
+		ClosedInterval another = new ClosedIntervalBuilder().min(3).max(14).build();
+		assertTrue(one.isIntersected(another));
+	}
 	
 }
