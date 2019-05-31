@@ -1,5 +1,5 @@
 package tdd.intervalHierarchy;
-
+/*
 public class OpenedInterval extends Interval {
 
 	public OpenedInterval(double min, double max) {
@@ -21,3 +21,4 @@ public class OpenedInterval extends Interval {
 }
 
 
+*/

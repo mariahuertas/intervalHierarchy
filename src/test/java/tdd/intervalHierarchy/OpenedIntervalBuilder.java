@@ -9,6 +9,6 @@ public class OpenedIntervalBuilder extends IntervalBuilder {
 	@Override
 	protected Interval build() {
 		assert min <= max;
-		return new OpenedInterval(min, max);
+		return new Interval(min, max);
 	}
 }
