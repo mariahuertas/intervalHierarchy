@@ -1,30 +1,14 @@
 package tdd.intervalHierarchy;
 
-public class ClosedIntervalBuilder {
-
-	private double min;
-	
-	private double max;
+public class ClosedIntervalBuilder extends IntervalBuilder{
 	
 	ClosedIntervalBuilder(){
-		this.min = 0;
-		this.max = 1;
+		super();
 	}
 	
-	ClosedIntervalBuilder min(double min) {
-		this.min = min;
-		return this;
-	}
-
-	ClosedIntervalBuilder max(double max) {
-		this.max = max;
-		return this;
-	}
-	
-	ClosedInterval build() {
+	@Override
+	protected Interval build() {
 		assert min <= max;
 		return new ClosedInterval(min, max);
 	}
-
-	
 }
