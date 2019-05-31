@@ -1,38 +1,34 @@
 package tdd.intervalHierarchy;
 
 public class Interval {
-	private double min;
-	private boolean isMinClosed;
-
-	private double max;
-	private boolean isMaxClosed;
-
+	
+	private Point fromEndPoint;
+	private Point untilEndPoint;
 
 	boolean isClosedInterval;
 
-	public Interval(double min, double max, boolean isClosedInterval) {
-		this.min = min;
-		this.max = max;
-		this.isClosedInterval = isClosedInterval;
+	public Interval(double min, double max, boolean fromIsClosed, boolean untilIsClosed) {
+		this.fromEndPoint = new Point(min, fromIsClosed, true);
+		this.untilEndPoint = new Point(max, untilIsClosed, true);
 	}
 
 	public boolean isIntersected(Interval another) {
-		return this.isIncluded(another.min, another.isClosedInterval) ||
-				this.isIncluded(another.max, another.isClosedInterval) ||
-				another.isIncluded(this.min, this.isClosedInterval) ||
-				this.isSameInterval(another);
+		return this.isIncluded(another.fromEndPoint) ||
+				this.isIncluded(another.untilEndPoint) ||
+				another.isIncluded(this.fromEndPoint) ||
+				this.isSameInterval(this.fromEndPoint);
 	}
 
-	private boolean isIncluded(double value, boolean isClosedInterval) {
-		if (this.isClosedInterval && isClosedInterval ) {
-			return this.min <= value && value <= this.max;
+	private boolean isIncluded(Point another) {
+		if (this.fromEndPoint.isLeft(another) && this.untilEndPoint.isRight(another)) {
+		return true;
 		}
-		
-		return this.min < value && value < this.max;
+		return false;
 	}
 
-	private boolean isSameInterval(Interval another) {
-		return this.min == another.min && another.max == this.max;
+	private boolean isSameInterval(Point another) {
+		return this.fromEndPoint.getPointValue() == another.fromEndPoint.getPointValue() && another.untilEndPoint.getPointValue() == this.untilEndPoint.getPointValue();
+		
 	}
 }
 
