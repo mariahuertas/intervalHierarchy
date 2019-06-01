@@ -5,9 +5,9 @@ public class Interval {
 	private FromEndPoint fromEndPoint;
 	private UntilEndPoint untilEndPoint;
 
-	public Interval(double min, double max, boolean fromIsClosed, boolean untilIsClosed) {
-		this.fromEndPoint = new FromEndPoint(min, fromIsClosed);
-		this.untilEndPoint = new UntilEndPoint(max, untilIsClosed);
+	public Interval(FromEndPoint fromEndPoint, UntilEndPoint untilEndPoint) {
+		this.fromEndPoint = fromEndPoint;
+		this.untilEndPoint = untilEndPoint;
 	}
 
 	public boolean isIntersected(Interval another) {
