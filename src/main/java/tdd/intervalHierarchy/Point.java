@@ -33,13 +33,6 @@ public class Point {
 		this.isClosed = isClosed;
 	}
 
-	public boolean isLeft(Point another){
-		if ((this.pointValue < another.getPointValue()) || this.isTheSame(another)) {
-			return true;
-		}
-		return false;
-	}
-
 	public boolean isRight(Point another){
 		if ((this.pointValue > another.getPointValue())|| this.isTheSame(another)) {
 			return true;
