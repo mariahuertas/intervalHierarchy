@@ -4,7 +4,7 @@ public abstract class Point {
 
 	protected double pointValue;
 	protected boolean isClosed;
-	
+
 	Point(double point, boolean isClosed){
 		this.pointValue = point;
 		this.isClosed = isClosed;
@@ -17,12 +17,9 @@ public abstract class Point {
 	public boolean getIfIsClosed() {
 		return this.isClosed;
 	}
-	
+
 	protected boolean isTheSame(Point another){
-		if ((this.pointValue == another.getPointValue()) && this.isClosed && another.getIfIsClosed()) {
-			return true;
-		}
-		return false;
+		return (this.pointValue == another.getPointValue()) && this.isClosed && another.getIfIsClosed();
 	}
 
 }
