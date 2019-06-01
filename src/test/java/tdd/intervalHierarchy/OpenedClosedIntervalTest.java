@@ -1,11 +1,10 @@
 package tdd.intervalHierarchy;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
-public class OpenedClosedIntervalTest {
+import junit.framework.TestCase;
+
+public class OpenedClosedIntervalTest extends TestCase {
 	@Test
 	public void testIsIntersectedSamePoint() {
 		Interval open = new IntervalBuilder().min(3).max(14).fromIsClosed(false).build();
