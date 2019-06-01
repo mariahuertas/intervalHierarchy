@@ -5,8 +5,6 @@ public abstract class Point {
 	protected double pointValue;
 	protected boolean isClosed;
 	
-	protected boolean isFromEndPoint;
-
 	Point(double point, boolean isClosed){
 		this.pointValue = point;
 		this.isClosed = isClosed;
