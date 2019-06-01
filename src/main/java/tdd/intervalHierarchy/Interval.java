@@ -5,8 +5,6 @@ public class Interval {
 	private FromEndPoint fromEndPoint;
 	private UntilEndPoint untilEndPoint;
 
-	boolean isClosedInterval;
-
 	public Interval(double min, double max, boolean fromIsClosed, boolean untilIsClosed) {
 		this.fromEndPoint = new FromEndPoint(min, fromIsClosed);
 		this.untilEndPoint = new UntilEndPoint(max, untilIsClosed);
@@ -20,7 +18,7 @@ public class Interval {
 	}
 
 	private boolean isIncluded(Point another) {
-		if (this.getFromEndPoint().isLeft(another) && this.getUntilEndPoint().isRight(another)) {
+		if (this.fromEndPoint.isLeft(another) && this.untilEndPoint.isRight(another)) {
 		return true;
 		}
 		return false;
@@ -31,12 +29,11 @@ public class Interval {
 		
 	}
 	
-	
-	public FromEndPoint getFromEndPoint () {
+	public Point getFromEndPoint () {
 		return this.fromEndPoint;
 	}
 	
-	public UntilEndPoint getUntilEndPoint () {
+	public Point getUntilEndPoint () {
 		return this.untilEndPoint;
 	}
 }

@@ -1,6 +1,6 @@
 package tdd.intervalHierarchy;
 
-public class Point {
+public abstract class Point {
 
 	protected double pointValue;
 	protected boolean isClosed;
