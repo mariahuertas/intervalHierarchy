@@ -18,10 +18,7 @@ public class Interval {
 	}
 
 	private boolean isIncluded(Point another) {
-		if (this.fromEndPoint.isLeft(another) && this.untilEndPoint.isRight(another)) {
-		return true;
-		}
-		return false;
+		return this.fromEndPoint.isLeft(another) && this.untilEndPoint.isRight(another);
 	}
 
 	private boolean isSameInterval(Interval another) {
