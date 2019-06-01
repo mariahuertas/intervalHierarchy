@@ -13,22 +13,31 @@ public class Interval {
 	}
 
 	public boolean isIntersected(Interval another) {
-		return this.isIncluded(another.fromEndPoint) ||
-				this.isIncluded(another.untilEndPoint) ||
-				another.isIncluded(this.fromEndPoint) ||
-				this.isSameInterval(this.fromEndPoint);
+		return this.isIncluded(another.getFromEndPoint()) ||
+				this.isIncluded(another.getUntilEndPoint()) ||
+				another.isIncluded(this.getFromEndPoint()) ||
+				this.isSameInterval(another);
 	}
 
 	private boolean isIncluded(Point another) {
-		if (this.fromEndPoint.isLeft(another) && this.untilEndPoint.isRight(another)) {
+		if (this.getFromEndPoint().isLeft(another) && this.getUntilEndPoint().isRight(another)) {
 		return true;
 		}
 		return false;
 	}
 
-	private boolean isSameInterval(Point another) {
-		return this.fromEndPoint.getPointValue() == another.fromEndPoint.getPointValue() && another.untilEndPoint.getPointValue() == this.untilEndPoint.getPointValue();
+	private boolean isSameInterval(Interval another) {
+		return this.getFromEndPoint().getPointValue() == another.getFromEndPoint().getPointValue() && another.getUntilEndPoint().getPointValue() == this.untilEndPoint.getPointValue();
 		
+	}
+	
+	
+	public Point getFromEndPoint () {
+		return this.fromEndPoint;
+	}
+	
+	public Point getUntilEndPoint () {
+		return this.untilEndPoint;
 	}
 }
 
