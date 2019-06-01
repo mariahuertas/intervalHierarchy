@@ -3,13 +3,13 @@ package tdd.intervalHierarchy;
 public class Interval {
 	
 	private FromEndPoint fromEndPoint;
-	private Point untilEndPoint;
+	private UntilEndPoint untilEndPoint;
 
 	boolean isClosedInterval;
 
 	public Interval(double min, double max, boolean fromIsClosed, boolean untilIsClosed) {
-		this.fromEndPoint = new FromEndPoint(min, fromIsClosed, true);
-		this.untilEndPoint = new Point(max, untilIsClosed, true);
+		this.fromEndPoint = new FromEndPoint(min, fromIsClosed);
+		this.untilEndPoint = new UntilEndPoint(max, untilIsClosed);
 	}
 
 	public boolean isIntersected(Interval another) {
@@ -36,7 +36,7 @@ public class Interval {
 		return this.fromEndPoint;
 	}
 	
-	public Point getUntilEndPoint () {
+	public UntilEndPoint getUntilEndPoint () {
 		return this.untilEndPoint;
 	}
 }
